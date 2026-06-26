@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniConvert | Online PDF Tools for Document Lovers</title>
+    <meta name="description" content="OmniConvert is a free online service to work with PDF files. Merge, split, compress, convert, rotate and watermark PDFs with just a few clicks.">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container" id="logo-home">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 1021 16h-5M4 20v-5h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="logo-text">Omni<span>Convert</span></div>
+        </div>
+        <div class="nav-links">
+            <a href="#">All PDF tools</a>
+            <button class="btn-login">Log in</button>
+            <button class="btn-signup">Sign up</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== DASHBOARD VIEW ===== -->
+        <div id="view-dashboard" class="view active">
+            <div class="hero">
+                <h1>Every tool you need to work with PDFs in one place</h1>
+                <p>Every tool you need to use PDFs, at your fingertips. All are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.</p>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="filter-bar" id="filter-bar">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <button class="filter-tag" data-filter="organize">Organize PDF</button>
+                <button class="filter-tag" data-filter="optimize">Optimize PDF</button>
+                <button class="filter-tag" data-filter="convert">Convert PDF</button>
+                <button class="filter-tag" data-filter="edit">Edit PDF</button>
+                <button class="filter-tag" data-filter="security">PDF Security</button>
+            </div>
+
+            <!-- Tools Grid -->
+            <div class="tools-grid" id="tools-grid">
+                <!-- Organize -->
+                <div class="tool-card" data-tool="merge-pdf" data-category="organize">
+                    <div class="tool-card-icon icon-red">
+                        <svg viewBox="0 0 24 24"><path d="M12 5v14m-7-7h14" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Merge PDF</h3>
+                    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+                </div>
+
+                <div class="tool-card" data-tool="split-pdf" data-category="organize">
+                    <div class="tool-card-icon icon-red">
+                        <svg viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-8 18v-4m8 4v-4M3 12h18" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Split PDF</h3>
+                    <p>Separate one page or a whole set for easy conversion into independent PDF files.</p>
+                </div>
+
+                <div class="tool-card" data-tool="remove-pages" data-category="organize">
+                    <div class="tool-card-icon icon-red">
+                        <svg viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Remove pages</h3>
+                    <p>Remove selected pages from your PDF document easily.</p>
+                </div>
+
+                <div class="tool-card" data-tool="organize-pdf" data-category="organize">
+                    <div class="tool-card-icon icon-red">
+                        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Organize PDF</h3>
+                    <p>Sort, add, and delete PDF pages. Drag and drop the page thumbnails to arrange them.</p>
+                </div>
+
+                <!-- Optimize -->
+                <div class="tool-card" data-tool="compress-pdf" data-category="optimize">
+                    <div class="tool-card-icon icon-green">
+                        <svg viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 012-2h4M4 16v2a2 2 0 002 2h4m8-16h-4m4 16h-4a2 2 0 01-2-2v-2M9 12h6" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Compress PDF</h3>
+                    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+                </div>
+
+                <div class="tool-card" data-tool="repair-pdf" data-category="optimize">
+                    <div class="tool-card-icon icon-green">
+                        <svg viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Repair PDF</h3>
+                    <p>Repair a damaged PDF and recover data from corrupt PDF files.</p>
+                </div>
+
+                <!-- Convert to PDF -->
+                <div class="tool-card" data-tool="jpg-to-pdf" data-category="convert">
+                    <div class="tool-card-icon icon-yellow">
+                        <svg viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>JPG to PDF</h3>
+                    <p>Convert JPG images to PDF in seconds. Easily adjust orientation and margins.</p>
+                </div>
+
+                <div class="tool-card" data-tool="word-to-pdf" data-category="convert">
+                    <div class="tool-card-icon icon-blue">
+                        <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Word to PDF</h3>
+                    <p>Make DOC and DOCX files easy to read by converting them to PDF.</p>
+                </div>
+
+                <div class="tool-card" data-tool="powerpoint-to-pdf" data-category="convert">
+                    <div class="tool-card-icon icon-orange">
+                        <svg viewBox="0 0 24 24"><path d="M7 3h10a2 2 0 012 2v14a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2zm0 4h10M7 12h10" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>PowerPoint to PDF</h3>
+                    <p>Make PPT and PPTX slideshows easy to view by converting them to PDF.</p>
+                </div>
+
+                <div class="tool-card" data-tool="excel-to-pdf" data-category="convert">
+                    <div class="tool-card-icon icon-green">
+                        <svg viewBox="0 0 24 24"><path d="M3 10h18M3 14h18M3 6h18M3 18h18M8 6v12M16 6v12" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Excel to PDF</h3>
+                    <p>Make EXCEL spreadsheets easy to read by converting them to PDF.</p>
+                </div>
+
+                <div class="tool-card" data-tool="html-to-pdf" data-category="convert">
+                    <div class="tool-card-icon icon-purple">
+                        <svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>HTML to PDF</h3>
+                    <p>Convert webpages in HTML to PDF. Copy and paste the URL of the page you want.</p>
+                </div>
+
+                <!-- Convert from PDF -->
+                <div class="tool-card" data-tool="pdf-to-word" data-category="convert">
+                    <div class="tool-card-icon icon-blue">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6M10 12h4m-4 4h4" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>PDF to Word</h3>
+                    <p>Easily convert your PDF files into easy to edit DOC and DOCX documents.</p>
+                </div>
+
+                <div class="tool-card" data-tool="pdf-to-powerpoint" data-category="convert">
+                    <div class="tool-card-icon icon-orange">
+                        <svg viewBox="0 0 24 24"><path d="M15 10l-4 4-4-4m4 4V4m-7 12v3a2 2 0 002 2h10a2 2 0 002-2v-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>PDF to PowerPoint</h3>
+                    <p>Turn your PDF files into easy to edit PPT and PPTX slideshows.</p>
+                </div>
+
+                <div class="tool-card" data-tool="pdf-to-excel" data-category="convert">
+                    <div class="tool-card-icon icon-green">
+                        <svg viewBox="0 0 24 24"><path d="M12 6h8M12 12h8M12 18h8M4 6h4v12H4z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>PDF to Excel</h3>
+                    <p>Pull data straight from PDFs into Excel spreadsheets in a few short seconds.</p>
+                </div>
+
+                <div class="tool-card" data-tool="pdf-to-jpg" data-category="convert">
+                    <div class="tool-card-icon icon-yellow">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z" stroke-linecap="round"/><circle cx="8.5" cy="8.5" r="1.5" stroke="none" fill="currentColor"/><path d="M21 15l-5-5L5 21" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>PDF to JPG</h3>
+                    <p>Convert each PDF page into a JPG or extract all images contained in a PDF.</p>
+                </div>
+
+                <!-- Edit -->
+                <div class="tool-card" data-tool="edit-pdf" data-category="edit">
+                    <div class="tool-card-icon icon-pink">
+                        <svg viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Edit PDF</h3>
+                    <p>Add text, images, shapes or freehand annotations to a PDF document.</p>
+                </div>
+
+                <div class="tool-card" data-tool="rotate-pdf" data-category="edit">
+                    <div class="tool-card-icon icon-pink">
+                        <svg viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 1021 16h-5M4 20v-5h5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Rotate PDF</h3>
+                    <p>Rotate your PDFs the way you need them. You can even rotate multiple PDFs at once.</p>
+                </div>
+
+                <div class="tool-card" data-tool="page-numbers" data-category="edit">
+                    <div class="tool-card-icon icon-pink">
+                        <svg viewBox="0 0 24 24"><path d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Add page numbers</h3>
+                    <p>Add page numbers into PDFs with ease. Choose your positions, dimensions and typography.</p>
+                </div>
+
+                <div class="tool-card" data-tool="watermark" data-category="edit">
+                    <div class="tool-card-icon icon-pink">
+                        <svg viewBox="0 0 24 24"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Add watermark</h3>
+                    <p>Stamp an image or text over your PDF in seconds. Choose the typography, transparency and position.</p>
+                </div>
+
+                <!-- Security -->
+                <div class="tool-card" data-tool="unlock-pdf" data-category="security">
+                    <div class="tool-card-icon icon-teal">
+                        <svg viewBox="0 0 24 24"><path d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Unlock PDF</h3>
+                    <p>Remove PDF password security, giving you the freedom to use your PDFs.</p>
+                </div>
+
+                <div class="tool-card" data-tool="protect-pdf" data-category="security">
+                    <div class="tool-card-icon icon-teal">
+                        <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2" stroke-linecap="round"/><path d="M12 15v2m0-6V7a4 4 0 00-8 0v4" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Protect PDF</h3>
+                    <p>Protect PDF files with a password. Encrypt PDF documents to prevent unauthorized access.</p>
+                </div>
+
+                <div class="tool-card" data-tool="sign-pdf" data-category="security">
+                    <div class="tool-card-icon icon-teal">
+                        <svg viewBox="0 0 24 24"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Sign PDF</h3>
+                    <p>Sign a document and request signatures. Draw your signature or sign PDFs with a certificate.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== TOOL WORKSPACE VIEW ===== -->
+        <div id="view-tool" class="view">
+            <div class="tool-workspace-header">
+                <button class="btn-back" id="btn-back-home">
+                    <svg viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    All tools
+                </button>
+                <h1 class="tool-page-title" id="active-tool-title">Tool</h1>
+                <p class="tool-page-desc" id="active-tool-desc">Description</p>
+            </div>
+
+            <div class="workspace-panel">
+                <!-- Step 1: Dropzone -->
+                <div class="screen active" id="tool-screen-dropzone">
+                    <div class="dropzone" id="tool-dropzone">
+                        <div class="dropzone-icon-wrap">
+                            <svg viewBox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="dropzone-label">
+                            <h2>Select files</h2>
+                            <p>or drop files here</p>
+                        </div>
+                        <input type="file" id="tool-file-input" class="file-input" multiple>
+                        <div class="format-tags" id="tool-format-tags"></div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Config -->
+                <div class="screen" id="tool-screen-config">
+                    <h3 class="section-heading">
+                        <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Selected files
+                    </h3>
+                    <div class="file-list" id="file-list"></div>
+
+                    <h3 class="section-heading" style="margin-top:0.5rem">
+                        <svg viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3"/></svg>
+                        Options
+                    </h3>
+                    <div class="settings-panel" id="settings-panel"></div>
+
+                    <div class="btn-row">
+                        <button class="btn btn-ghost" id="btn-cancel">Cancel</button>
+                        <button class="btn btn-action" id="btn-convert">Convert</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Processing -->
+                <div class="screen" id="tool-screen-processing">
+                    <div class="processing-center">
+                        <div class="progress-ring">
+                            <svg viewBox="0 0 110 110">
+                                <circle class="ring-bg" cx="55" cy="55" r="50"/>
+                                <circle class="ring-fill" id="ring-fill" cx="55" cy="55" r="50"/>
+                            </svg>
+                            <div class="progress-pct" id="progress-pct">0%</div>
+                        </div>
+                        <div class="processing-label">
+                            <h2>Processing your files</h2>
+                            <p id="processing-sub">Please wait...</p>
+                        </div>
+                        <div class="log-console" id="log-console"></div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Success -->
+                <div class="screen" id="tool-screen-success">
+                    <div class="done-center">
+                        <div class="check-badge">
+                            <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h2>Files have been converted!</h2>
+                        <p>Your documents have been processed. Click the button below to download.</p>
+                        <div class="result-card">
+                            <div class="result-badge" id="result-badge" style="background:#e5322d;">PDF</div>
+                            <div class="result-info">
+                                <div class="result-name" id="result-name">result.pdf</div>
+                                <div class="result-meta" id="result-meta">0 KB</div>
+                            </div>
+                        </div>
+                        <div class="done-btns">
+                            <button class="btn btn-ghost" id="btn-again">Start over</button>
+                            <a class="btn btn-action" id="btn-download">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 OmniConvert — Every PDF tool you need, entirely in your browser.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
